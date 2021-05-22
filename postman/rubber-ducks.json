@@ -1,0 +1,128 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "OpenAPI definition",
+		"version": "v0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:8080",
+			"description": "Generated server url"
+		}
+	],
+	"tags": [
+		{
+			"name": "RubberDucks",
+			"description": "A rubber duck controller"
+		}
+	],
+	"paths": {
+		"/rubber-duck": {
+			"get": {
+				"tags": [
+					"RubberDucks"
+				],
+				"summary": "Get all rubber ducks",
+				"operationId": "findRubberDucks",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json;charset=UTF-8": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/RubberDuck"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"RubberDucks"
+				],
+				"summary": "Add a new rubber duck",
+				"operationId": "addRubberDuck",
+				"requestBody": {
+					"content": {
+						"application/json;charset=UTF-8": {
+							"schema": {
+								"$ref": "#/components/schemas/RubberDuck"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json;charset=UTF-8": {
+								"schema": {
+									"$ref": "#/components/schemas/RubberDuck"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/rubber-duck/{id}": {
+			"delete": {
+				"tags": [
+					"RubberDucks"
+				],
+				"summary": "Delete a rubber duck by id",
+				"operationId": "deleteRubberDuck",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "integer",
+							"format": "int64"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "rubber duck found!"
+					},
+					"404": {
+						"description": "rubber duck not found :("
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"RubberDuck": {
+				"required": [
+					"id",
+					"name"
+				],
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "Unique identifier for a rubber duck",
+						"format": "int64",
+						"example": 1
+					},
+					"name": {
+						"maxLength": 20,
+						"minLength": 0,
+						"type": "string",
+						"description": "Name of a RubberDuck",
+						"example": "Max"
+					}
+				}
+			}
+		}
+	}
+}

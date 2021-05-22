@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "8debe20f-640f-409d-a9c6-36116c0168a8",
+		"name": "Misc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Collection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.getpostman.com/collections?apikey={{myKey}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"collections"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{myKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
