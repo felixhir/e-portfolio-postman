@@ -1,7 +1,7 @@
 {
 	"openapi": "3.0.1",
 	"info": {
-		"title": "OpenAPI definition",
+		"title": "Postman E-Portfolio",
 		"version": "v0"
 	},
 	"servers": [
